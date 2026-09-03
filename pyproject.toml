@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "drift"
+version = "0.1.0"
+description = "Dynamic scheduling of multi-DNN inference on heterogeneous accelerators"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Justin Davis", email = "davisjustin302@gmail.com" }]
+dependencies = [
+    # TODO: DRIFT uses trtutils APIs (notably trtutils.impls.yolo.ParallelYOLO and
+    # jetson.benchmark_engine) that are NOT yet in the released PyPI version. Pin a
+    # minimum version once an updated trtutils is published. cv2ext may need the same
+    # treatment -- cv2ext.detection.AnnealingFramePacker.
+    "trtutils",
+    "cv2ext",
+    "jetsontools",
+    "numpy",
+    "matplotlib",
+    "scikit-learn",
+    "tqdm",
+    "typing-extensions",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/drift"]

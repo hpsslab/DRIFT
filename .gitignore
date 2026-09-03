@@ -1,0 +1,19 @@
+# generated data products
+src/drift/records/*.pickle
+src/drift/predictor.pickle
+src/drift/cache.pickle
+src/drift/plots/*
+!src/drift/records/.gitkeep
+!src/drift/plots/.gitkeep
+
+# user-supplied inputs
+data/
+datasets/
+
+# python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
